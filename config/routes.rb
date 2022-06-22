@@ -28,8 +28,8 @@ root to: "publics/homes#top"
 get "/about" => "publics/homes#about"
 
 resource :customers, only: [:show, :edit, :update]
-get "/customers/exit" => "publics/customers#exit"
-
+get "/customers/exit" => "customers#exit"
+patch "/customers/out" => "customers#out"
 resources :products, only: [:show, :index]
 resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
 
