@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1>マイページ</h1>
+      <h2>登録情報</h2>
+      <p>編集する(編集ボタンを表示させる)</p>
+
+      <table class="table table-bordered ">
+        <thead>
+          <tr>
+            <th style="background-color: #CCCCCC;">氏名</th>
+            <td><%= @customer.first_name %><%= @customer.last_name %></td>
+          </tr>
+           <tr>
+            <th style="background-color: #CCCCCC;">カナ</th>
+            <td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
+          </tr>
+            <th style="background-color: #CCCCCC;">郵便番号</th>
+            <td><%= @customer.post_code %></td>
+          </tr>
+          </tr>
+            <th style="background-color: #CCCCCC;">住所</th>
+            <td><%= @customer.address %></td>
+          </tr>
+          </tr>
+            <th style="background-color: #CCCCCC;">電話番号</th>
+            <td><%= @customer.phone_number %></td>
+          </tr>
+           </tr>
+            <th style="background-color: #CCCCCC;">メールアドレス</th>
+            <td><%= @customer.email %></td>
+          </tr>
+        </thead>
+      </table>
+      <h2>配送先</h2>
+      <p>一覧を見るボタンを作る</p>
+      <h2>注文履歴</h2>
+      <p>一覧を見るボタンを作る</p>
+    </div>
+  </div>
+</div>
