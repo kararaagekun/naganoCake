@@ -3,9 +3,10 @@
     <div class="col-sm-8">
       <h1>マイページ</h1>
       <h2>登録情報</h2>
-      <p>編集する(編集ボタンを表示させる)</p>
-
-      <table class="table table-bordered ">
+      <%= link_to edit_publics_customers_path do %>
+        <div class="btn btn-success">編集する</div>
+      <% end %>
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th style="background-color: #CCCCCC;">氏名</th>
