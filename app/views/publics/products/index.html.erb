@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-xl-6 center-block"><h1>商品一覧</h1></div>
+  </div>
+  <div class="row row-cols-4">
+    <% @products.each do |products| %>
+    <div class="col">
+      <%= link_to publics_product_path(products) do %>
+        <%= image_tag products.image, size:'200x200' %>
+      <% end %><br>
+      <%= products.name %><br>
+      ¥<%= (products.price*1.1).floor.to_s(:delimited, delimiter: ',') %>
+    </div>
+    <% end %>
+  </div>
+  <%= paginate @products %>
+</div>
