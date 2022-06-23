@@ -22,22 +22,28 @@ devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+
 root to: "publics/homes#top"
 get "/about" => "publics/homes#about"
-namespace :publics do
 
+
+namespace :publics do
 resource :customers, only: [:show, :edit, :update]
-get "/customers/exit" => "/customers#exit"
+
+get "/customers/exit" => "customers#exit"
+patch "/customers/out" => "customers#out"
 
 resources :products, only: [:show, :index]
 resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
 
 resources :cart_products, only: [:index, :create, :update, :destroy]
-delete "/cart_products" => "/cart_products#destroy_all"
+
+delete "/cart_products" => "cart_products#destroy_all"
 
 resources :orders, only: [:index, :show, :new, :create]
-post "/orders/check" => "/orders#check"
-get "/orders/complete" => "/orders#complete"
+post "/orders/check" => "orders#check"
+get "/orders/complete" => "orders#complete"
+
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
