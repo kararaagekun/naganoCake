@@ -21,6 +21,10 @@ class Publics::CustomersController < ApplicationController
   end
 
   def out
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    sign_out_and_redirect(@customer)
+
   end
 
 
