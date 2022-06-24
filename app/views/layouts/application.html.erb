@@ -11,6 +11,75 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+          <% if customer_signed_in? %>
+            <li="customer_name">
+              ようこそ、<%= current_customer.last_name %>さん!
+            </li>
+            <li="ml-3">
+              <%= link_to "マイページ", publics_customers_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "商品一覧", publics_products_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "カート", publics_cart_products_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+            </li>
+          <% elsif admin_signed_in? %>
+            <li="ml-3">
+              <%= link_to "商品一覧", admins_products_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "会員一覧", admins_customers_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "注文履歴一覧", admins_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "ジャンル一覧", admins_genres_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+            </li>
+          <% else %>
+            <li="mr-3">
+              <%= link_to "About", about_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "商品一覧", publics_products_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li="ml-3">
+              <%= link_to "ログイン", customer_session_path, class: "btn btn-outline-secondary" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+
+
+
+
+
+
     <%= yield %>
+
+
+
+
   </body>
 </html>
