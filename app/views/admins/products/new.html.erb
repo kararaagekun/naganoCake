@@ -3,6 +3,7 @@
     商品新規登録
     <div class="col align-self-center">
       <%= form_with model: @product, url: admins_products_path  do |f| %>
+        <%= render "public/shared/error_messages", resource: @product %>
         <div class="form-group">
           <%= f.label :商品画像 %>
           <%= f.file_field :image, class: "form-control-file product_image", accept: 'image/*' %>

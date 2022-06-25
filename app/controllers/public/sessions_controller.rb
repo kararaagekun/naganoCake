@@ -26,16 +26,6 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
 
-  protected
-
-  def after_sign_in_path_for(resource)
-    publics_products_path
-  end
-
-  def after_sign_out_path_for(resource)
-    new_customer_session_path
-  end
-
 # 退会しているかを判断するメソッド
   def customer_state
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
@@ -47,9 +37,8 @@ class Public::SessionsController < Devise::SessionsController
     ## 【処理内容3】
       redirect_to new_customer_registration_path
     else
-      redirect_to publics_customers_path(@current_customer)
+      redirect_to publics_customers_path(current_customer)
     end
-
   end
 
 end
