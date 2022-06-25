@@ -38,7 +38,7 @@ resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
 
 resources :cart_products, only: [:index, :create, :update, :destroy]
 
-delete "/cart_products" => "cart_products#destroy_all"
+delete "/cart_products" => "cart_products#destroy_all", as: "destroy_all"
 
 resources :orders, only: [:index, :show, :new, :create]
 post "/orders/check" => "orders#check"

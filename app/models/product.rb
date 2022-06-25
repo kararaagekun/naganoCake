@@ -2,7 +2,13 @@ class Product < ApplicationRecord
 
   has_one_attached :image
   belongs_to :genre
+  has_many :cart_products
 
   validates :image, presence: true
+
+
+  def with_tax_price
+    (price*1.1).floor.to_s(:delimited, delimiter: ',')
+  end
 
 end
