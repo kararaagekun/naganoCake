@@ -40,9 +40,10 @@ resources :cart_products, only: [:index, :create, :update, :destroy]
 
 delete "/cart_products" => "cart_products#destroy_all", as: "destroy_all"
 
+get "/orders/complete" => "orders#complete"
 resources :orders, only: [:index, :show, :new, :create]
 post "/orders/check" => "orders#check"
-get "/orders/complete" => "orders#complete"
+
 
 end
 
