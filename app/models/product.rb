@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_one_attached :image
   belongs_to :genre
   has_many :cart_products
+  has_many :order_products
 
   validates :image, presence: true
   validates :name, presence: true

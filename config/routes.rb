@@ -7,7 +7,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 namespace :admins do
-    get "/" => "adimins/homes#top"
+    get "/" => "homes#top"
     resources :customers, only: [:show, :index, :edit, :update]
     resources :products, except: [:destroy]
     resources :orders, only: [:show, :update]
