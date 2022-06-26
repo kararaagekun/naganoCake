@@ -18,7 +18,7 @@
         <tbody>
           <% @cart_products.each do |cart_products| %>
           <tr>
-            <td><%= cart_products.product.name %></td>
+            <td><%= image_tag cart_products.product.image, size: "50x50" %><%= cart_products.product.name %></td>
             <td><%= cart_products.product.with_tax_price %></td>
 
             <%= form_with model: cart_products, url: publics_cart_product_path(cart_products) do |f| %>
