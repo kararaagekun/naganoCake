@@ -1,42 +1,49 @@
 <div class="container">
   <div class="row">
-    <div class="col-xl-4">
-      <h2>商品詳細</h2><br>
-      <%= image_tag @product.image, size: "400x400" %>
+    <div class="col col-xl-2 text-center">
+      <br><h4 class="bg-light text-black">商品詳細</h4>
     </div>
-
-    <div class="col-xl-8">
+    <div class="col col-xl-8">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-xl-3">
+      <%= image_tag @product.image, size: "350x350" %>
+    </div>
+    <div class="col col-xl-1">
+    </div>
+    <div class="col col-xl-8 center-block">
       <table>
-        <tbody>
-          <tr>
-            <td>商品名</td>
-            <td><%= @product.name %></td>
-          </tr>
-          <tr>
-            <td>商品説明</td>
-            <td><%= @product.introduction %></td>
-          </tr>
-          <tr>
-            <td>ジャンル</td>
-            <td><%= @product.genre.name %></td>
-          </tr>
-          <tr>
-            <td>税込価格(税抜価格)</td>
-            <td><%= (@product.price*1.1).floor.to_s(:delimited, delimiter: ',') %>
-                (<%= (@product.price).floor.to_s(:delimited, delimiter: ',') %>)</td>
-          </tr>
-          <tr>
-            <% if @product.is_actice == false %>
-              <td class="text-success">販売中</td>
-            <% else %>
-              <td class="text-secondary">販売停止中</td>
-            <% end %>
-          </tr>
-        </tbody>
+        <tr>
+          <th>商品名</th>
+          <td><%= @product.name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= @product.introduction %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @product.genre.name %></td>
+        </tr>
+        <tr>
+          <th>税込価格(税抜価格)</th>
+          <td><%= (@product.price*1.1).floor.to_s(:delimited, delimiter: ',') %>
+              (<%= (@product.price).floor.to_s(:delimited, delimiter: ',') %>)</td>
+        </tr>
+        <tr>
+          <% if @product.is_actice == false %>
+            <td class="text-success">販売中</td>
+          <% else %>
+            <td class="text-secondary">販売停止中</td>
+          <% end %>
+        </tr>
       </table>
-      <div>
-        <%= link_to "編集する", edit_admins_product_path(@product), class: "btn btn-primary" %>
-      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to "編集する", edit_admins_product_path(@product), class: "btn btn-success" %>
     </div>
   </div>
 </div>

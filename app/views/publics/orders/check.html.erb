@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col col-xl-6 center-block">
-      <h3 class="bg-secondary text-black">注文情報確認</h3>
+    <div class="col col-xl-3 text-center">
+      <br><h3 class="bg-light">注文情報確認</h3>
     </div>
   </div>
   <div class="row">
@@ -28,7 +28,7 @@
       </table>
     </div>
     <div class="col col-xl-4">
-      <table class="table table-bordered th-light">
+      <table class="table table-bordered">
         <tr><th>送料</th><td><%= @order.postage %></td></tr>
         <tr><th>商品合計</th><td><%= @total_price.floor.to_s(:delimited, delimiter: ',') %></td></tr>
         <tr><th>請求金額</th><td><%= @order.total_money %></td></tr>
