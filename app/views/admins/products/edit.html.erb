@@ -1,7 +1,13 @@
 <div class="container">
   <div class="row">
-    商品編集
-    <div class="col align-self-center">
+    <div class="col col-xl-2 text-center">
+      <br><h4 class="bg-light text-black">商品編集</h4>
+    </div>
+    <div class="col col-xl-8">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
       <%= form_with model: @product, url: admins_product_path  do |f| %>
         <div class="form-group">
           <%= f.label :商品画像 %>
