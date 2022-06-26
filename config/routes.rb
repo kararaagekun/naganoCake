@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-
+get "/admins" => "admins/homes#top"
 namespace :admins do
-    get "/" => "adimins/homes#top"
+    
     resources :customers, only: [:show, :index, :edit, :update]
     resources :products, except: [:destroy]
     resources :orders, only: [:show, :update]

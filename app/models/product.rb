@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
-  validates :is_actice, presence: true
+  validates :is_actice, presence: false
 
 
   def with_tax_price
