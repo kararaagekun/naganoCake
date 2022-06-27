@@ -1,10 +1,12 @@
 class Admins::OrdersController < ApplicationController
+  before_action :authenticate_a!
+
     def show
       @order = Order.find(params[:id])
       @order_details = @order.order_products
     end
-    
-    
+
+
     def update
 		order = Order.find(params[:id])
 		order_details = order.order_products
