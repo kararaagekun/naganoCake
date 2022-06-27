@@ -1,4 +1,5 @@
 class Publics::OrdersController < ApplicationController
+  before_action :authenticate_customer!
   def new
     @order = Order.new
     @shipping_addresses = ShippingAddress.where(customer: current_customer)
@@ -15,7 +16,7 @@ class Publics::OrdersController < ApplicationController
     # 請求金額を代入
     @order.total_money = @order.postage + @total_price
     # ラジオボタンで選択された支払い方法を渡す
-    @order.payment_method = params[:order][:payment_method].to_i
+    @order.payment_method = params[:order][:payment_method]
 
     # newの住所欄を参照
 

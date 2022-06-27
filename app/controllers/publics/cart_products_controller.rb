@@ -1,5 +1,5 @@
 class Publics::CartProductsController < ApplicationController
-
+before_action :authenticate_customer!
   def index
     @cart_products = current_customer.cart_products
     # 単価(税込)と数量を掛けてsumで合計を出す
