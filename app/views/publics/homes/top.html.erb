@@ -1,17 +1,30 @@
 <div class="container">
-    <div class="row">
-  	<div class="col-xs-2"></div>
+<div class="col-md-8 mx-auto mr-3v">
+  <div class="top mx-auto mt-3">
+    <div class="py-md-5 text-center h5">
+        <span>ようこそ、NaganoCakeへ！<span><br>
+        <span>このサイトはケーキ販売のECサイトになります。</span><br>
+        <span>会員でない方も商品の閲覧はできますが、</span><br>
+        <span>購入には会員登録が必要になります。</span><br>
 
-    <div class="col-xs-9 col-xs-offset-1 mx-auto mt-5 text-left">
-        <h4>ようこそ、NaganoCakeへ！<br>
-        このサイトはケーキ販売のECサイトになります。<br>
-        会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。<br>
-        </h4>
+    </div>
+  </div>
+
         <p></p>
+        <div class="mx-auto">
         <h3>オススメ商品</h3>
-
-        <!-- 商品を4つ表示するようにする -->
-
-     </div>
+       <div class="row">
+                <% @products.last(4).each do |product| %>
+                    <div class="col-xs-1 pr-5">
+                        <%= link_to publics_product_path(product.id), style: "color: black;" do %>
+                            <%= image_tag product.image, size:'100x100', format: 'jpeg' %><br>
+                            <%= product.name %><br>
+                            ￥<%= product.price %>
+                        <% end %>
+                    </div>
+                <% end %>
+    </div>
+   </div>
+   <p class="text-right h4"><%= link_to "全ての商品を見る", publics_products_path, class: "btn-link  pull-right" %></p>
+  </div>
 </div>
