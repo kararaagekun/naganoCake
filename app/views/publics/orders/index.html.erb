@@ -14,15 +14,19 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
             <td>〒<%= order.post_code %><br>
                 <%= order.address %><br>
                 <%= order.name %></td>
 
-            <td></td>
-              <!--メモに貼ってある-->
+            <td>
+              <% order.order_products.each do |order_product| %>
+                <%= order_product.product.name %><br>
+              <% end %>
+            </td>
 
-            <td> <%= order.total_money %></td>
+
+            <td><%= order.total_money %></td>
             <td><%= order.status %></td>
             <td><%= link_to "表示する", publics_order_path(order), class: "btn btn-primary" %></td>
         <% end %>

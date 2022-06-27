@@ -15,7 +15,7 @@ class Publics::OrdersController < ApplicationController
     # 請求金額を代入
     @order.total_money = @order.postage + @total_price
     # ラジオボタンで選択された支払い方法を渡す
-    @order.payment_method = params[:order][:payment_method].to_i
+    @order.payment_method = params[:order][:payment_method]
 
     # newの住所欄を参照
 
@@ -77,10 +77,13 @@ class Publics::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+    #下でも起動する
+    #@orders = Order.all
   end
 
   def show
     @order = Order.find(params[:id])
+    @order_products = @order.order_products
   end
 
   private
