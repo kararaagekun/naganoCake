@@ -1,7 +1,16 @@
-<div class='container'>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col3">
+      <h2 class="bg-light text-black">ジャンル追加・一覧</h2>
+    </div>
+  </div>
+</div>
+
+
+<div class='container mt-4'>
   <div class='row'>
     <div class='col-md-6'>
-      <h2>ジャンル一覧・追加</h2>
+
       <%= form_with model: @genre, url: admins_genres_path do |f| %>
       <%= f.label :ジャンル %><%= f.text_field :name %>
       <%= f.submit '新規登録', class: "btn btn-success" %>

@@ -1,7 +1,10 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <div class="col col-xl-6 center-block"><h1>商品一覧</h1>(<%= @products.count %>)</div>
+    <div class="col3">
+      <h2 class="bg-light text-black">商品一覧</h2>(<%= @products.count %>)
+    </div>
   </div>
+
   <div class="row row-cols-4">
     <% @products.each do |products| %>
     <div class="col">
