@@ -14,7 +14,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
             <li="customer_name">
@@ -67,6 +67,13 @@
       </div>
     </nav>
   </header>
-    <%= yield %>
+<%= yield %>
+
+<div style="height: 100px"></div>
+
+<nav class="navbar fixed-bottom navbar-light bg-light" style="height: 10%">
+  <div class="container-fluid min-vh-20"></div>
+</nav>
+
   </body>
 </html>
