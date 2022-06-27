@@ -1,1 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
+.top {
+  width: 700px; 
+  height: 450px; 
+  background-image: url(https://media-assets.aumo.jp/uploads/photo/external_photo/data/91771/large_3a815f62-aee8-4090-92ee-5fbfb72be26e.jpeg);
+  background-size: cover;
+  color: #fff;
+  text-shadow: 2px 2px 0 black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
