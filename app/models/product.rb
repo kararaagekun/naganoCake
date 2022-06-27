@@ -12,7 +12,6 @@ class Product < ApplicationRecord
 
 
 
-
   def with_tax_price
     (price*1.1).floor.to_s(:delimited, delimiter: ',')
   end

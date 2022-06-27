@@ -76,6 +76,16 @@ class Publics::OrdersController < ApplicationController
   end
 
 
+  def index
+    @orders = current_customer.orders
+    #下でも起動する
+    #@orders = Order.all
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @order_products = @order.order_products
+  end
 
   private
 
