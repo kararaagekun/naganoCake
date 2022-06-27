@@ -33,7 +33,7 @@ class Publics::OrdersController < ApplicationController
 
     # 新しいお届け先が選択されたとき
     elsif params[:order][:addresses] == "new_address"
-      @order.post_code = params[:order][:postal_code]
+      @order.post_code = params[:order][:post_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
     end
