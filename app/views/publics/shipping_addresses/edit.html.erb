@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col col-xl-3 text-center">
+      <h2 class="bg-light text-black">配送先編集</h2>
+    </div>
+  </div>
+    <%= form_with model: @shipping_address, url: publics_shipping_address_path, class: "col-12", local: true do |f| %>
+
+    <%= render "public/shared/error_messages", resource: @shipping_address %>
+
+      <div class="new-shipping_address row mt-5 ml-0 mr-0">
+        <%= f.label "郵便番号(ハイフンなし)",  class: "col-3 mr-3" %>
+        <%= f.text_field :post_code, placeholder: "0000000" %>
+      </div>
+      <div class="new-shipping_address row mt-2 ml-0 mr-0">
+        <%= f.label "住所", class: "col-3 mr-3" %>
+        <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", :size=>"50" %>
+      </div>
+      <div class="new-shipping_address row mt-2 ml-0 mr-0">
+        <%= f.label "宛名", class: "col-3 mr-3" %>
+        <%= f.text_field :name, placeholder: "令和道子" %>
+        <%= f.submit "変更内容を保存", class: "btn btn-success col-3 offset-md-3" %>
+      </div>
+    <% end %>
+  </div>

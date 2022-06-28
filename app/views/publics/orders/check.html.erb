@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-xl-3 text-center">
+      <br><h3 class="bg-light">注文情報確認</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-xl-8">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_products.each do |cart_products| %>
+          <tr>
+            <td><%= image_tag cart_products.product.image, size: "50x50" %>  <%= cart_products.product.name %></td>
+            <td><%= cart_products.product.with_tax_price %></td>
+            <td><%= cart_products.amount %></td>
+            <td><%= (cart_products.product.price*1.1*cart_products.amount).floor.to_s(:delimited, delimiter: ',') %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col col-xl-4">
+      <table class="table table-bordered">
+        <tr><th>送料</th><td><%= @order.postage %></td></tr>
+        <tr><th>商品合計</th><td><%= @total_price.floor.to_s(:delimited, delimiter: ',') %></td></tr>
+        <tr><th>請求金額</th><td><%= @order.total_money %></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m-3">
+      <h3>支払い方法</h3><%= @order.payment_method %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m-3">
+      <h3>お届け先</h3>〒<%= @order.post_code %><%= @order.address %><%= @order.name %>
+    </div>
+  </div>
+  <div class="row">
+    <%= form_with model: @order, url: publics_orders_path, method: :post do |f| %>
+    <%= f.hidden_field :postage, :value => @order.postage %>
+    <%= f.hidden_field :total_money, :value => @order.total_money %>
+    <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+    <%= f.hidden_field :name, :value => @order.name %>
+    <%= f.hidden_field :address, :value => @order.address %>
+    <%= f.hidden_field :post_code, :value => @order.post_code %>
+    <div class="col text-center"><%= f.submit "注文を確定する", class: 'btn btn-success' %></div>
+    <% end %>
+  </div>
+</div>

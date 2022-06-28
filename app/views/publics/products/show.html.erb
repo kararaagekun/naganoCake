@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col center-block">
+      <br><%= image_tag @product.image, size: "400x400" %>
+    </div>
+    <div class="col center-block">
+      <br><h2><%= @product.name %></h2><br>
+      <p><%= @product.introduction %></p><br>
+      <p><h2>¥<%= (@product.price*1.1).floor.to_s(:delimited, delimiter: ',') %></h2>（税込み）</p>
+      <% if @product.is_actice == false %>
+      <p class="text-success">販売中</p>
+      <% else %>
+      <p class="text-secondary">販売停止中</p>
+      <% end %>
+      <br>
+      <% if @product.is_actice == false %>
+        <%= form_with model: @cart_product, url: publics_cart_products_path, method: :post do |f| %>
+        <%= f.hidden_field :product_id, :value => @product.id %>
+          <!--<div class="form-group">-->
+            <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
+            <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+          <!--</div>-->
+        <% end %>
+      <% else %>
+      <% end %>
+    </div>
+  </div>
+</div>
